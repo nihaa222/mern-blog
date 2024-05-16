@@ -18,14 +18,14 @@ const Dashboard = () => {
   }, [location.search]);
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row">
+    <div className="min-h-screen min-w-full  flex flex-col md:flex-row ">
       {/* sidebar */}
 
       <div className="md:w-56">
         <DashSidebar />
       </div>
       {/* profile */}
-      <div>{tab === "profile" && <DashProfile />}</div>
+      {tab === "profile" && <DashProfile />}
     </div>
   );
 };

@@ -18,20 +18,23 @@ function DashSidebar() {
   return (
     <Sidebar className="w-full md:w-56">
       <Sidebar.Items>
-        <Link to="/dashboard?tab=profile">
-          <Sidebar.ItemGroup>
+        <Sidebar.ItemGroup>
+          <Link to="/dashboard?tab=profile">
             <Sidebar.Item
               active={tab === "profile"}
               icon={HiUser}
               label={"User"}
               labelColor="dark"
+              as="div"
             >
               Profile
             </Sidebar.Item>
+          </Link>
 
-            <Sidebar.Item active icon={HiArrowRight} className></Sidebar.Item>
-          </Sidebar.ItemGroup>
-        </Link>
+          <Sidebar.Item icon={HiArrowRight} className>
+            Sign Out
+          </Sidebar.Item>
+        </Sidebar.ItemGroup>
       </Sidebar.Items>
     </Sidebar>
   );
