@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+
 const postSchema = new mongoose.Schema(
   {
     userId: {
@@ -17,7 +18,7 @@ const postSchema = new mongoose.Schema(
     image: {
       type: String,
       default:
-        "https://tse3.mm.bing.net/th?id=OIP.R2AHSisNP4ZDO_jfcRRQGgAAAA&pid=Api&P=0&h=180",
+        "https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2021/09/how-to-write-a-blog-post.png",
     },
     category: {
       type: String,
@@ -33,4 +34,5 @@ const postSchema = new mongoose.Schema(
 );
 
 const Post = mongoose.model("Post", postSchema);
+
 export default Post;

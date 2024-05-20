@@ -1,37 +1,44 @@
-import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
-import About from "./Pages/About";
-import Signin from "./Pages/Signin";
-import Signup from "./Pages/Signup";
-import Dashboard from "./Pages/Dashboard";
+import SignIn from "./Pages/Signin";
+
 import Projects from "./Pages/Projects";
+import SignUp from "./Pages/Signup";
 import Header from "./components/Header";
-import FooterCom from "./components/FooterCom";
+import Footer from "./components/FooterCom";
 import PrivateRoute from "./components/PrivateRoute";
 import OnlyAdminPrivateRoute from "./components/OnlyAdminPrivateRoute";
-import CreatePosts from "./Pages/CreatePosts";
+import CreatePost from "./Pages/CreatePosts";
+import UpdatePost from "./Pages/UpdatePost";
+import PostPage from "./Pages/PostPage";
+import ScrollToTop from "./components/ScrollToTop";
+import Search from "./Pages/Search";
+import Dashboard from "./Pages/Dashboard";
+import About from "./Pages/About";
 
-const App = () => {
+export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Header />
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/about" element={<About />}></Route>
-        <Route path="/sign-in" element={<Signin />}></Route>
-        <Route path="/sign-up" element={<Signup />}></Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/search" element={<Search />} />
         <Route element={<PrivateRoute />}>
-          <Route path="/dashboard" element={<Dashboard />}></Route>
+          <Route path="/dashboard" element={<Dashboard />} />
         </Route>
-        <Route element={<OnlyAdminPrivateRoute />}>
-          <Route path="/create-post" element={<CreatePosts />}></Route>
-        </Route>
-        <Route path="/projects" element={<Projects />}></Route>
+
+        <Route path="/create-post" element={<CreatePost />} />
+
+        <Route path="/update-post/:postId" element={<UpdatePost />} />
+
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/post/:postSlug" element={<PostPage />} />
       </Routes>
-      <FooterCom />
+      <Footer />
     </BrowserRouter>
   );
-};
-
-export default App;
+}
